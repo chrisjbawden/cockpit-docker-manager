@@ -11,7 +11,7 @@
 
 <h3>Install</h3>
 <br>
-<h2>Ubuntu - </h2>
+<h4>Ubuntu - </h4>
 <code>sudo curl -fsSL [https://raw.githubusercontent.com/chrisjbawden/cockpit-portainer-application/main/quick-deploy.sh](https://raw.githubusercontent.com/chrisjbawden/cockpit-docker-manager/refs/heads/main/quick-deploy.sh) -o quick-deploy.sh | sudo sh quick-deploy.sh</code>
 
 <br>
