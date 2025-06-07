@@ -1,0 +1,13 @@
+{
+    "version": 0.2,
+
+    "menu": {
+        "index": {
+            "label": "Docker Manager",
+            "path": "index.html",
+            "order": 120
+        }
+    },
+    "content-security-policy": "default-src 'self' https: 'unsafe-inline'; connect-src wss: https: "
+
+}
