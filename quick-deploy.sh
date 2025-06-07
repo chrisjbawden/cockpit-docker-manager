@@ -34,7 +34,7 @@ if [ -d "$target_directory" ]; then
 fi
 
 # Download .tar file from GitHub
-tar_url="https://github.com/chrisjbawden/cockpit-dockermanager-application/releases/download/v1.0/dockermanager.tar"
+tar_url="https://github.com/chrisjbawden/cockpit-docker-manager/raw/refs/heads/main/dockermanager.tar"
 wget "$tar_url" -O dockermanager.tar
 
 # Create target directory and extract contents into it
