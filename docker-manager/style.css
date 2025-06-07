@@ -1,0 +1,110 @@
+body {
+  font-family: system-ui, sans-serif;
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+  margin: 20px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+
+.refresh-button {
+  background: #28a745;
+  color: white;
+  padding: 6px 12px;
+  margin-left: 90%;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.95em;
+  transition: background 0.2s ease;
+}
+
+.refresh-button:hover {
+  background: #218838;
+}
+
+.container-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2c2c2c;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.container-card.stopped {
+  background: #3a3a3a;
+}
+
+.container-info {
+  flex-grow: 1;
+}
+
+.container-name {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.container-status {
+  color: #aaa;
+  font-size: 0.9em;
+  margin-top: 4px;
+}
+
+.container-ports {
+  color: #ccc;
+  font-size: 0.85em;
+  margin-right: 20px;
+  white-space: nowrap;
+}
+
+.container-ports a {
+  color: #4fa9ff;
+  margin-right: 8px;
+  text-decoration: none;
+}
+
+.container-ports a:hover {
+  text-decoration: underline;
+}
+
+.container-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.container-actions button {
+  background: #007bff;
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+.container-actions button:hover {
+  background: #0056b3;
+}
+
+.loading, .empty, .error {
+  padding: 16px;
+  font-size: 1em;
+  background: #2c2c2c;
+  border-left: 4px solid #555;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.error {
+  border-left-color: #ff4c4c;
+  color: #ffcccc;
+}
