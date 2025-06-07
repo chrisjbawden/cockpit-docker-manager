@@ -3,13 +3,12 @@
 # Suppress command output
 exec &> /dev/null
 
-# Check if the OS is Ubuntu 22 or higher
+# Check if the OS is Ubuntu
 if [ "$(lsb_release -si)" != "Ubuntu" ]; then
   echo ""
   echo "This script was created for Ubuntu"
   echo ""
-  
-# Confirm before continuing
+
   read -p "This script is intended for Ubuntu - Do you want to continue? (y/n): " confirm
   if [[ ! "$confirm" =~ ^[Yy]$ ]]; then
     echo ""
@@ -19,35 +18,34 @@ if [ "$(lsb_release -si)" != "Ubuntu" ]; then
   fi
 fi
 
-# Check if the upgrade option is provided
+# Define the install target
+target_directory="/usr/share/cockpit/dockermanager"
+
+# Handle upgrade logic
 if [ "$1" = "upgrade" ]; then
-  # Check if the target directory exists
-  if [ -d "/usr/share/cockpit/dockermanager" ]; then
-    # Delete existing directory
-    rm -rf "/usr/share/cockpit/dockermanager" || echo "Failed to delete existing directory." ; sleep 5 ; exit
+  if [ -d "$target_directory" ]; then
+    rm -rf "$target_directory" || { echo "Failed to delete existing directory."; sleep 5; exit 1; }
   fi
 fi
 
-# Check if the target directory exists
+# Backup existing directory if it exists
 if [ -d "$target_directory" ]; then
-  # Rename existing directory to 'old'
-  mv "$target_directory" "$target_directory.old" || echo "Failed to rename existing directory." ; sleep 5 ; exit
+  mv "$target_directory" "${target_directory}.old" || { echo "Failed to rename existing directory."; sleep 5; exit 1; }
 fi
 
-# Download the .tar file
-tar_url=""  # Replace with the actual URL
-wget https://github.com/chrisjbawden/cockpit-portainer-application/releases/download/v1.1-beta/cockpit-portainer-application-1.1-beta.tar
+# Download .tar file from GitHub
+tar_url="https://github.com/chrisjbawden/cockpit-dockermanager-application/releases/download/v1.0/dockermanager.tar"
+wget "$tar_url" -O dockermanager.tar
 
-# Extract the .tar file to the target directory
-tar -xf cockpit-portainer-application-1.1-beta.tar
+# Create target directory and extract contents into it
+mkdir -p "$target_directory"
+tar -xf dockermanager.tar -C "$target_directory"
 
-sudo mv portainer /usr/share/cockpit
-
-# Cleanup: Remove the downloaded .tar file
-rm cockpit-portainer-application-1.1-beta.tar
+# Clean up tar file
+rm dockermanager.tar
 
 echo ""
 echo ""
-echo "Script executed successfully."
+echo "Docker Manager deployed successfully to $target_directory"
 echo ""
 echo ""
