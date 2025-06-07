@@ -1,9 +1,10 @@
 <div align="center"><h1>Cockpit Docker Container Manager</h1></div>
 <br>
 <br>
+<div style="width: 90%;" align="center">
 
 ![image](https://github.com/user-attachments/assets/8c13eb85-78ba-400f-b946-daee43984310)
-
+</div>
 
 
 <br>
